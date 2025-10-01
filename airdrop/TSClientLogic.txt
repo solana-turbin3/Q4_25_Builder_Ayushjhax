@@ -1,0 +1,8 @@
+Question: Why do you think Solana has chosen during most of its history to use Typescript for Client side
+development?
+
+Answer: Typescript could be choosen for client side development because first it provides strong type safety which helps to interact safely with the data structures which are on chain. it have a good user base it can be build safer dapss with modern frameworks like react.
+
+// https://explorer.solana.com/tx/3pqgYuKvVkCEYQbUNGHq82RDKLZGdPdTfZkUvBSH7erEdo1vZq9NWDMPi9ZMHmFggHP7jVpso4RYtYJX5ktcwoi2?cluster=devnet
+
+// https://explorer.solana.com/tx/5nMcVevDE7Lj5a9NtLzgdLwuU3gwwMs43idRTM74eXebT2xGJg3qQr2qv5jZBc5ZKT38SFKXtgg9v7jZ14CtJWVd?cluster=devnet
