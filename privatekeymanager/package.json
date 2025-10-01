@@ -7,7 +7,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
-    "fetch:idldev": "ts-node src/fetchIdl.ts"
+    "fetch:idldev": "ts-node src/fetchIdl.ts",
+    "to:base58": "ts-node src/toBase58.ts"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.31.2",
