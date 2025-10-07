@@ -1,0 +1,21 @@
+# Node
+node_modules/
+**/node_modules/
+
+# Rust
+**/target/
+**/*.rlib
+**/*.d
+
+# OS/Editor
+.DS_Store
+.vscode/
+
+# Builds
+**/dist/
+**/build/
+**/.cache/
+
+# Env
+.env
+**/.env*
