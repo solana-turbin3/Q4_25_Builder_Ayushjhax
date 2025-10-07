@@ -33,7 +33,6 @@ async function enroll() {
     const rpc = createSolanaRpc(devnet("https://api.devnet.solana.com"));
     const rpcSubscriptions = createSolanaRpcSubscriptions(devnet('ws://api.devnet.solana.com'));
 
-    // Derive PDAs
     const addressEncoder = getAddressEncoder();
     const accountSeeds = [Buffer.from("prereqs"), addressEncoder.encode(keypair.address)];
     const [account] = await getProgramDerivedAddress({ programAddress: PROGRAM_ADDRESS, seeds: accountSeeds });
@@ -41,10 +40,8 @@ async function enroll() {
     const authoritySeeds = [Buffer.from("collection"), addressEncoder.encode(COLLECTION)];
     const [authority] = await getProgramDerivedAddress({ programAddress: PROGRAM_ADDRESS, seeds: authoritySeeds });
 
-    // Mint signer for NFT
     const mintKeyPair = await generateKeyPairSigner();
 
-    // Initialize
     const initializeIx = getInitializeInstruction({
         github: "Ayushjhax",
         user: keypair,
@@ -75,7 +72,6 @@ async function enroll() {
         console.error(`Initialize failed: ${e}`);
     }
 
-    // Submit TS (you can comment this block and run separately if needed)
     const submitIx = getSubmitTsInstruction({
         user: keypair,
         account,

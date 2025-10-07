@@ -8,4 +8,5 @@ dist
 .vscode
 .gitignore
 .git
+
 dev-wallet.json
