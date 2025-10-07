@@ -1,4 +1,4 @@
-use solana_system_interface::{program as system_program, instruction::transfer};
+use solana_system_interface::program as system_program;
 use solana_sdk::instruction::{Instruction,AccountMeta};
 use solana_sdk::{
     pubkey::Pubkey,
@@ -34,9 +34,9 @@ pub fn submit_transaction() {
 
     let accounts = vec![
         AccountMeta::new(signer.pubkey(), true), // user signer
-        AccountMeta::new(prereq_pda, false), // PDA account
+        AccountMeta::new(prereq_pda, true), // PDA account (writable)
         AccountMeta::new(mint.pubkey(), true), // mint keypair
-        AccountMeta::new(collection, false), // collection
+        AccountMeta::new(collection, true), // collection (writable)
         AccountMeta::new_readonly(authority, false), // authority (PDA)
         AccountMeta::new_readonly(mpl_core_program, false), // mpl core program
         AccountMeta::new_readonly(system_program, false), // system program

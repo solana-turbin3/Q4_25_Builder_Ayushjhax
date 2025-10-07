@@ -6,7 +6,6 @@ mod tests {
 use super::*;
 
 #[test]
-
 fn base58_to_wallet() {
 println!("Input your private key as a base58 string:");
 let stdin = io::stdin();
