@@ -4,16 +4,12 @@ import wallet from "./dev-wallet.json";
 
 async function performAirdrop() {
     const LAMPORTS_PER_SOL = BigInt(1_000_000_000);
-    
-    // We're going to import our keypair from the wallet file
     const keypair = await createKeyPairSignerFromBytes(new Uint8Array(wallet));
     console.log(`Your Solana wallet address: ${keypair.address}`);
 
-    // Create an rpc connection
     const rpc = createSolanaRpc(devnet("https://api.devnet.solana.com"));
     const rpcSubscriptions = createSolanaRpcSubscriptions(devnet('ws://api.devnet.solana.com'));
 
-    // Using the convenient airdropFactory from solana kit
     const airdrop = airdropFactory({ rpc, rpcSubscriptions });
     
     try {
@@ -31,4 +27,3 @@ async function performAirdrop() {
 }
 
 performAirdrop().catch(console.error);
-
