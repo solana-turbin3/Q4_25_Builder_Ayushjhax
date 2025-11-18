@@ -1,0 +1,41 @@
+{
+  "name": "@repo/buyer",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint --max-warnings 0",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/db": "*",
+    "@repo/ui": "*",
+    "@stripe/react-stripe-js": "^4.0.2",
+    "@stripe/stripe-js": "^7.9.0",
+    "@tailwindcss/postcss": "^4.1.12",
+    "bcrypt": "^6.0.0",
+    "crypto": "^1.0.1",
+    "next": "^14.2.13",
+    "next-auth": "^4.24.11",
+    "razorpay": "^2.9.6",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "stripe": "^18.5.0"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^22.15.3",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.34.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^4.1.12",
+    "typescript": "5.9.2"
+  }
+}

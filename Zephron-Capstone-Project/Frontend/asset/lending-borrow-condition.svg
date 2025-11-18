@@ -1,0 +1,24 @@
+<svg width="650" height="150" viewBox="0 0 650 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .formula { font-family: 'Courier New', monospace; font-size: 20px; fill: #2c3e50; font-weight: bold; }
+      .label { font-family: 'Arial', sans-serif; font-size: 14px; fill: #7f8c8d; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="650" height="150" fill="#fef9e7" rx="10"/>
+  
+  <!-- Border -->
+  <rect x="15" y="15" width="620" height="120" fill="none" stroke="#f39c12" stroke-width="3" rx="5"/>
+  
+  <!-- Title -->
+  <text x="325" y="45" text-anchor="middle" class="title">Borrowing Condition</text>
+  
+  <!-- Formula -->
+  <text x="325" y="85" text-anchor="middle" class="formula">Total Borrowed + B ≤ Total Collateral × maxLTV</text>
+  
+  <!-- Legend -->
+  <text x="325" y="115" text-anchor="middle" class="label">B = New Borrow Amount | maxLTV = Maximum Loan-to-Value (e.g., 0.75 or 75%)</text>
+</svg>

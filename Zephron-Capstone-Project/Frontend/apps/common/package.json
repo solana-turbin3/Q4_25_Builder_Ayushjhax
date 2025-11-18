@@ -1,0 +1,22 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "esbuild": "^0.25.9",
+    "express": "^5.1.0",
+    "@repo/db": "*"
+
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3"
+  }
+}

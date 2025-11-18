@@ -1,0 +1,24 @@
+<svg width="500" height="150" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .formula { font-family: 'Courier New', monospace; font-size: 32px; fill: #c0392b; font-weight: bold; }
+      .label { font-family: 'Arial', sans-serif; font-size: 14px; fill: #7f8c8d; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="150" fill="#fadbd8" rx="10"/>
+  
+  <!-- Border -->
+  <rect x="15" y="15" width="470" height="120" fill="none" stroke="#e74c3c" stroke-width="3" rx="5"/>
+  
+  <!-- Title -->
+  <text x="250" y="45" text-anchor="middle" class="title">Liquidation Condition</text>
+  
+  <!-- Formula -->
+  <text x="250" y="90" text-anchor="middle" class="formula">HF &lt; 1.0</text>
+  
+  <!-- Legend -->
+  <text x="250" y="120" text-anchor="middle" class="label">Position becomes liquidatable when Health Factor falls below 1.0</text>
+</svg>

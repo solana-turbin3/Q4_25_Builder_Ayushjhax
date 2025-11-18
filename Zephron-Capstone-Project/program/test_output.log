@@ -1,0 +1,150 @@
+warning: unexpected `cfg` condition value: `custom-heap`
+  --> programs/stablecoin/src/lib.rs:12:1
+   |
+12 | #[program]
+   | ^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `cpi`, `default`, `idl-build`, `no-entrypoint`, `no-idl`, and `no-log-ix-name`
+   = help: consider adding `custom-heap` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: `#[warn(unexpected_cfgs)]` on by default
+   = note: this warning originates in the macro `$crate::custom_heap_default` which comes from the expansion of the attribute macro `program` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition value: `custom-panic`
+  --> programs/stablecoin/src/lib.rs:12:1
+   |
+12 | #[program]
+   | ^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `cpi`, `default`, `idl-build`, `no-entrypoint`, `no-idl`, and `no-log-ix-name`
+   = help: consider adding `custom-panic` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: this warning originates in the macro `$crate::custom_panic_default` which comes from the expansion of the attribute macro `program` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition value: `anchor-debug`
+ --> programs/stablecoin/src/instructions/admin/update_config.rs:4:10
+  |
+4 | #[derive(Accounts)]
+  |          ^^^^^^^^
+  |
+  = note: expected values for `feature` are: `cpi`, `default`, `idl-build`, `no-entrypoint`, `no-idl`, and `no-log-ix-name`
+  = help: consider adding `anchor-debug` as a feature in `Cargo.toml`
+  = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+  = note: this warning originates in the derive macro `Accounts` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition value: `anchor-debug`
+ --> programs/stablecoin/src/instructions/admin/initialize_config.rs:7:10
+  |
+7 | #[derive(Accounts)]
+  |          ^^^^^^^^
+  |
+  = note: expected values for `feature` are: `cpi`, `default`, `idl-build`, `no-entrypoint`, `no-idl`, and `no-log-ix-name`
+  = help: consider adding `anchor-debug` as a feature in `Cargo.toml`
+  = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+  = note: this warning originates in the derive macro `Accounts` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition value: `anchor-debug`
+  --> programs/stablecoin/src/instructions/deposit/deposit_collateral_and_mint_tokens.rs:12:10
+   |
+12 | #[derive(Accounts)]
+   |          ^^^^^^^^
+   |
+   = note: expected values for `feature` are: `cpi`, `default`, `idl-build`, `no-entrypoint`, `no-idl`, and `no-log-ix-name`
+   = help: consider adding `anchor-debug` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: this warning originates in the derive macro `Accounts` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition value: `anchor-debug`
+ --> programs/stablecoin/src/instructions/withdraw/redeem_collateral_and_burn_tokens.rs:9:10
+  |
+9 | #[derive(Accounts)]
+  |          ^^^^^^^^
+  |
+  = note: expected values for `feature` are: `cpi`, `default`, `idl-build`, `no-entrypoint`, `no-idl`, and `no-log-ix-name`
+  = help: consider adding `anchor-debug` as a feature in `Cargo.toml`
+  = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+  = note: this warning originates in the derive macro `Accounts` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition value: `anchor-debug`
+ --> programs/stablecoin/src/instructions/withdraw/liquidate.rs:9:10
+  |
+9 | #[derive(Accounts)]
+  |          ^^^^^^^^
+  |
+  = note: expected values for `feature` are: `cpi`, `default`, `idl-build`, `no-entrypoint`, `no-idl`, and `no-log-ix-name`
+  = help: consider adding `anchor-debug` as a feature in `Cargo.toml`
+  = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+  = note: this warning originates in the derive macro `Accounts` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition value: `anchor-debug`
+  --> programs/stablecoin/src/lib.rs:12:1
+   |
+12 | #[program]
+   | ^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `cpi`, `default`, `idl-build`, `no-entrypoint`, `no-idl`, and `no-log-ix-name`
+   = help: consider adding `anchor-debug` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: this warning originates in the attribute macro `program` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition value: `anchor-debug`
+  --> programs/stablecoin/src/lib.rs:12:1
+   |
+12 | #[program]
+   | ^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `cpi`, `default`, `idl-build`, `no-entrypoint`, `no-idl`, and `no-log-ix-name`
+   = help: consider adding `anchor-debug` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+   = note: this warning originates in the derive macro `Accounts` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated method `anchor_lang::prelude::AccountInfo::<'a>::realloc`: Use AccountInfo::resize() instead
+  --> programs/stablecoin/src/lib.rs:12:1
+   |
+12 | #[program]
+   | ^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+   = note: this warning originates in the attribute macro `program` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unused variable: `actual_sol_price`
+  --> programs/stablecoin/src/instructions/utils.rs:75:9
+   |
+75 |     let actual_sol_price = (sol_price.price as f64) * (10.0_f64.powi(sol_price.exponent as i32));
+   |         ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_actual_sol_price`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: `gold` (lib) generated 16 warnings (5 duplicates)
+    Finished `release` profile [optimized] target(s) in 0.45s
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.43s
+     Running unittests src/lib.rs (/Users/ayush/Desktop/programmable-money/program/target/debug/deps/gold-15e6423d36a4fbab)
+
+Found a 'test' script in the Anchor.toml. Running it as a test suite!
+
+Running test suite: "/Users/ayush/Desktop/programmable-money/program/Anchor.toml"
+
+yarn run v1.22.22
+$ /Users/ayush/Desktop/programmable-money/program/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+GOLD/USD PriceUpdateV2 account: 2uPQGpm8X4ZkxMHxrAW1QuhXcse1AHEgPih6Xp9NuEWW https://explorer.solana.com/address/2uPQGpm8X4ZkxMHxrAW1QuhXcse1AHEgPih6Xp9NuEWW?cluster=devnet
+SOL/USD PriceUpdateV2 account: 7UVimffxr9ow1uXYxsr4LHAcV58mLzhmwaeKvJ1pjLiE https://explorer.solana.com/address/7UVimffxr9ow1uXYxsr4LHAcV58mLzhmwaeKvJ1pjLiE?cluster=devnet
+
+
+  gold
+Config already initialized, skipping initializeConfig
+    ✔ Is initialized! (557ms)
+Your transaction signature 4N8iyHZEtJAQ9jNhaA7C5Z6yrTttEdHHuRVKSxogeRoe5gma2XFUcmQFNWWxz4i1RgHrkpH5zGELsQqrzgovhssb https://explorer.solana.com/tx/4N8iyHZEtJAQ9jNhaA7C5Z6yrTttEdHHuRVKSxogeRoe5gma2XFUcmQFNWWxz4i1RgHrkpH5zGELsQqrzgovhssb?cluster=devnet
+    ✔ Deposit Collateral and Mint GOLD (1236ms)
+Your transaction signature 3a97DhESQT7LZ5VDnWLun9121J48mGdgSDfYtAZS2x7ix681QPNjuuYxgDikJri5BmN4K6bVGPrUXt6HjN9NeX7Q https://explorer.solana.com/tx/3a97DhESQT7LZ5VDnWLun9121J48mGdgSDfYtAZS2x7ix681QPNjuuYxgDikJri5BmN4K6bVGPrUXt6HjN9NeX7Q?cluster=devnet
+    ✔ Redeem Collateral and Burn GOLD (860ms)
+Your transaction signature 4qixmMCi2rTeFa5Wkaf6Sn38A2AoXi3cCD1cNvDDFDhUhjn6B4p7j1a7DRpjcNJeWSjPcTq8fDQigqWKPdPUMeKw https://explorer.solana.com/tx/4qixmMCi2rTeFa5Wkaf6Sn38A2AoXi3cCD1cNvDDFDhUhjn6B4p7j1a7DRpjcNJeWSjPcTq8fDQigqWKPdPUMeKw?cluster=devnet
+    ✔ Update Config (828ms)
+Your transaction signature 2dv4aHNL14mUrTp3UHZX8X7wHPeA7UhA6hFsPXEeLUcKKS6XY4hHxnDeV9KLARu5SnamDbug7PVZtkwHPd5nmicc https://explorer.solana.com/tx/2dv4aHNL14mUrTp3UHZX8X7wHPeA7UhA6hFsPXEeLUcKKS6XY4hHxnDeV9KLARu5SnamDbug7PVZtkwHPd5nmicc?cluster=devnet
+    ✔ Liquidate (720ms)
+Your transaction signature 5ySNTMopcLfjKeA7KTiYriaKK32nKMVdoqSR4rXNGXPNe9hab15nVnvs7x2BEoukyQuTVizxswPuLv1JZmzTDaKv https://explorer.solana.com/tx/5ySNTMopcLfjKeA7KTiYriaKK32nKMVdoqSR4rXNGXPNe9hab15nVnvs7x2BEoukyQuTVizxswPuLv1JZmzTDaKv?cluster=devnet
+    ✔ Update Config (699ms)
+
+
+  6 passing (5s)
+
+Done in 6.55s.

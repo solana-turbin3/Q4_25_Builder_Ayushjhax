@@ -1,0 +1,24 @@
+<svg width="650" height="150" viewBox="0 0 650 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .formula { font-family: 'Courier New', monospace; font-size: 22px; fill: #2c3e50; font-weight: bold; }
+      .label { font-family: 'Arial', sans-serif; font-size: 14px; fill: #7f8c8d; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="650" height="150" fill="#fadbd8" rx="10"/>
+  
+  <!-- Border -->
+  <rect x="15" y="15" width="620" height="120" fill="none" stroke="#e74c3c" stroke-width="3" rx="5"/>
+  
+  <!-- Title -->
+  <text x="325" y="45" text-anchor="middle" class="title">Liquidation Amount</text>
+  
+  <!-- Formula -->
+  <text x="325" y="85" text-anchor="middle" class="formula">Liquidation Amount = Total Borrowed × LCF</text>
+  
+  <!-- Legend -->
+  <text x="325" y="115" text-anchor="middle" class="label">LCF = Liquidation Close Factor (e.g., 0.5 or 50%)</text>
+</svg>

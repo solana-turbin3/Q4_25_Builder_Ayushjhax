@@ -1,0 +1,26 @@
+<svg width="650" height="180" viewBox="0 0 650 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .formula { font-family: 'Courier New', monospace; font-size: 24px; fill: #2c3e50; font-weight: bold; }
+      .label { font-family: 'Arial', sans-serif; font-size: 14px; fill: #7f8c8d; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="650" height="180" fill="#fadbd8" rx="10"/>
+  
+  <!-- Border -->
+  <rect x="15" y="15" width="620" height="150" fill="none" stroke="#e74c3c" stroke-width="3" rx="5"/>
+  
+  <!-- Title -->
+  <text x="325" y="50" text-anchor="middle" class="title">Health Factor (HF) Calculation</text>
+  
+  <!-- Formula -->
+  <text x="325" y="85" text-anchor="middle" class="formula">Total Collateral × LT</text>
+  <text x="325" y="105" text-anchor="middle" class="formula">HF = ──────────────────</text>
+  <text x="325" y="125" text-anchor="middle" class="formula">Total Borrowed</text>
+  
+  <!-- Legend -->
+  <text x="325" y="155" text-anchor="middle" class="label">HF &gt; 1.0: Healthy Position | HF &lt; 1.0: Liquidatable Position</text>
+</svg>

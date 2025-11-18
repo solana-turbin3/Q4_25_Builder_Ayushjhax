@@ -1,0 +1,24 @@
+<svg width="800" height="150" viewBox="0 0 800 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .formula { font-family: 'Courier New', monospace; font-size: 18px; fill: #2c3e50; font-weight: bold; }
+      .label { font-family: 'Arial', sans-serif; font-size: 14px; fill: #7f8c8d; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="150" fill="#fef9e7" rx="10"/>
+  
+  <!-- Border -->
+  <rect x="15" y="15" width="770" height="120" fill="none" stroke="#f39c12" stroke-width="3" rx="5"/>
+  
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" class="title">Total Borrowed Value in USD</text>
+  
+  <!-- Formula -->
+  <text x="400" y="85" text-anchor="middle" class="formula">Total Borrowed = (B_SOL × P_SOL/USD) + (B_USDC × P_USDC/USD)</text>
+  
+  <!-- Legend -->
+  <text x="400" y="115" text-anchor="middle" class="label">B = Borrowed Amount | P = Price from Oracle</text>
+</svg>

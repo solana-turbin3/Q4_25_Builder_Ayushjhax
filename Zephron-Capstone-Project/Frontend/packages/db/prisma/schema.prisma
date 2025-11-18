@@ -1,0 +1,316 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String? @unique
+  name  String?
+  phone String @unique
+  password String
+  dateOfBirth DateTime?
+  address String?
+  ssn String? @unique 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  isActive Boolean @default(true)
+  isVerified Boolean @default(false)
+  isAdmin Boolean @default(false)
+  isPhoneVerified Boolean @default(false)
+  isEmailVerified Boolean @default(false)
+  isKycVerified Boolean @default(false)
+  role UserRole @default(CUSTOMER)
+  
+  // Relations
+  accounts Account[]
+  fromTransactions Transaction[] @relation("FromUser")
+  toTransactions Transaction[] @relation("ToUser")
+  cards Card[]
+  loans Loan[]
+  sessions Session[]
+  auditLogs AuditLog[]
+  securityEvents SecurityEvent[]
+  onRampTransactions OnRampTransaction[]
+  balance Balance?
+}
+
+enum UserRole {
+  CUSTOMER
+  SELLER
+  ADMIN
+  BANK_EMPLOYEE
+}
+
+enum AuthType {
+  Google
+  Github
+}
+
+model OnRampTransaction {
+  id Int @id @default(autoincrement())
+  status OnrampStatus
+  token String @unique
+  provider String
+  amount Int
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+}
+
+enum OnrampStatus {
+  Pending
+  Success
+  Failed
+}
+
+
+model Account {
+  id Int @id @default(autoincrement())
+  accountNumber String @unique
+  userId Int
+  accountType AccountType
+  balance Int @default(0) // Amount in cents
+  currency String @default("USD")
+  isActive Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  
+  user User @relation(fields: [userId], references: [id])
+  fromTransactions Transaction[] @relation("FromAccount")
+  toTransactions Transaction[] @relation("ToAccount")
+  cards Card[]
+}
+
+enum AccountType {
+  CHECKING
+  SAVINGS
+  BUSINESS
+  INVESTMENT
+  CREDIT
+}
+
+model Card {
+  id Int @id @default(autoincrement())
+  cardNumber String @unique
+  cardType CardType
+  expiryDate DateTime
+  cvv String
+  pin String?
+  isActive Boolean @default(true)
+  isBlocked Boolean @default(false)
+  dailyLimit Int @default(500000) // $5000 in cents
+  monthlyLimit Int @default(10000000) // $100,000 in cents
+  accountId Int
+  userId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  
+  account Account @relation(fields: [accountId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+  transactions Transaction[]
+}
+
+enum CardType {
+  DEBIT
+  CREDIT
+  PREPAID
+}
+
+model Loan {
+  id Int @id @default(autoincrement())
+  loanNumber String @unique
+  userId Int
+  loanType LoanType
+  principalAmount Int // Amount in cents
+  interestRate Decimal @db.Decimal(5, 4) // 4 decimal places for precision
+  termMonths Int
+  monthlyPayment Int // Amount in cents
+  remainingBalance Int // Amount in cents
+  status LoanStatus @default(ACTIVE)
+  disbursementDate DateTime?
+  maturityDate DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  
+  user User @relation(fields: [userId], references: [id])
+  payments LoanPayment[]
+}
+
+enum LoanType {
+  PERSONAL
+  HOME
+  AUTO
+  BUSINESS
+  STUDENT
+}
+
+enum LoanStatus {
+  PENDING
+  APPROVED
+  ACTIVE
+  PAID_OFF
+  DEFAULTED
+  CANCELLED
+}
+
+model LoanPayment {
+  id Int @id @default(autoincrement())
+  loanId Int
+  amount Int // Amount in cents
+  paymentDate DateTime @default(now())
+  principalAmount Int // Amount in cents
+  interestAmount Int // Amount in cents
+  remainingBalance Int // Amount in cents
+  createdAt DateTime @default(now())
+  
+  loan Loan @relation(fields: [loanId], references: [id])
+}
+
+model Transaction {
+  id Int @id @default(autoincrement())
+  transactionId String @unique
+  amount Int // Amount in cents
+  type TransactionType
+  status TransactionStatus @default(PENDING)
+  description String?
+  reference String? // External reference number
+  fromAccountId Int?
+  toAccountId Int?
+  fromUserId Int?
+  toUserId Int?
+  cardId Int?
+  fee Int @default(0) // Fee amount in cents
+  exchangeRate Decimal? @db.Decimal(10, 6) // For currency conversions
+  metadata Json? // Additional transaction data
+  processedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  
+  // Relations
+  fromAccount Account? @relation("FromAccount", fields: [fromAccountId], references: [id])
+  toAccount Account? @relation("ToAccount", fields: [toAccountId], references: [id])
+  fromUser User? @relation("FromUser", fields: [fromUserId], references: [id])
+  toUser User? @relation("ToUser", fields: [toUserId], references: [id])
+  card Card? @relation(fields: [cardId], references: [id])
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  TRANSFER
+  PAYMENT
+  REFUND
+  FEE
+  INTEREST
+  LOAN_DISBURSEMENT
+  LOAN_PAYMENT
+  CARD_PURCHASE
+  CARD_WITHDRAWAL
+  ONRAMP
+  OFFRAMP
+  OTHER
+}
+
+enum TransactionStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+  REVERSED
+}
+
+model Session {
+  id Int @id @default(autoincrement())
+  sessionToken String @unique
+  userId Int
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  isActive Boolean @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  user User @relation(fields: [userId], references: [id])
+}
+
+model AuditLog {
+  id Int @id @default(autoincrement())
+  userId Int?
+  action String
+  resource String
+  resourceId String?
+  details Json?
+  ipAddress String?
+  userAgent String?
+  timestamp DateTime @default(now())
+  
+  user User? @relation(fields: [userId], references: [id])
+}
+
+model SecurityEvent {
+  id Int @id @default(autoincrement())
+  userId Int?
+  eventType SecurityEventType
+  severity SecurityEventSeverity
+  description String
+  ipAddress String?
+  userAgent String?
+  metadata Json?
+  isResolved Boolean @default(false)
+  resolvedAt DateTime?
+  createdAt DateTime @default(now())
+  
+  user User? @relation(fields: [userId], references: [id])
+}
+
+enum SecurityEventType {
+  LOGIN_SUCCESS
+  LOGIN_FAILED
+  PASSWORD_CHANGE
+  CARD_BLOCKED
+  SUSPICIOUS_TRANSACTION
+  ACCOUNT_LOCKED
+  UNUSUAL_ACTIVITY
+  DATA_BREACH_ATTEMPT
+  OTHER
+}
+
+enum SecurityEventSeverity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+model Balance {
+  id Int @id @default(autoincrement())
+  userId Int @unique
+  amount Int
+  locked Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime?
+  
+  user User @relation(fields: [userId], references: [id])
+}

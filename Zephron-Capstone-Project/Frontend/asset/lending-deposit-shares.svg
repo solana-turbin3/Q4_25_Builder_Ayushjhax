@@ -1,0 +1,32 @@
+<svg width="600" height="280" viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Arial', sans-serif; font-size: 18px; font-weight: bold; fill: #2c3e50; }
+      .formula { font-family: 'Courier New', monospace; font-size: 16px; fill: #34495e; }
+      .label { font-family: 'Arial', sans-serif; font-size: 14px; fill: #7f8c8d; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="280" fill="#f8f9fa" rx="10"/>
+  
+  <!-- Title -->
+  <text x="300" y="35" text-anchor="middle" class="title">Deposit Shares Calculation</text>
+  
+  <!-- Border -->
+  <rect x="20" y="50" width="560" height="210" fill="none" stroke="#dee2e6" stroke-width="2" rx="5"/>
+  
+  <!-- First Deposit Case -->
+  <text x="40" y="80" class="formula">If TD = 0 (first deposit):</text>
+  <text x="60" y="105" class="formula">User Shares = A</text>
+  <text x="60" y="130" class="formula">TDS = A</text>
+  <text x="60" y="155" class="formula">TD = A</text>
+  
+  <!-- Subsequent Deposits Case -->
+  <text x="40" y="190" class="formula">Otherwise:</text>
+  <text x="60" y="215" class="formula">Deposit Ratio = A / TD</text>
+  <text x="60" y="240" class="formula">User Shares = TDS × Deposit Ratio</text>
+  
+  <!-- Legend -->
+  <text x="40" y="270" class="label">A = Amount | TD = Total Deposits | TDS = Total Deposit Shares</text>
+</svg>
