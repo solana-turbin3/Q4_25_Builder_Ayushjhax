@@ -84,11 +84,9 @@ It allows users to lock SOL as an Asset as collateral to mint a synthetic, GOLD-
 
 ![](Frontend/asset/image.png)
 
-**Program Id:** `EGtHEv1xJP3aA3fT5JVB7H2UXoR6s7rB6iYjkifDqdvQ`
+**Program Id:** `Hkb3K3f9FWtosSZwk9KRbV8izZ2hFEF9LgxSwVxvDFjL`
 
-**Signature:** `7ruA1gESbkMz1tvoKNFmADHg3XtvptwwXLSk2JxKt3TmGtvUdaF2jXR4gkbJovokQSgQ8Qw85LTJDSSctef11rn`
-
-**Initialization:** [https://explorer.solana.com/tx/5nQmjPPLXavsWMMmTauj6Lo23QkC9pRG1WUK8HpAdBWdyJQnUQHtm4w1VCKwY2vUhXwQWLtMF5wyqasFT4EKBXQ5?cluster=devnet](https://explorer.solana.com/tx/5nQmjPPLXavsWMMmTauj6Lo23QkC9pRG1WUK8HpAdBWdyJQnUQHtm4w1VCKwY2vUhXwQWLtMF5wyqasFT4EKBXQ5?cluster=devnet)
+**Initialization Transaction:** [https://explorer.solana.com/tx/5nQmjPPLXavsWMMmTauj6Lo23QkC9pRG1WUK8HpAdBWdyJQnUQHtm4w1VCKwY2vUhXwQWLtMF5wyqasFT4EKBXQ5?cluster=devnet](https://explorer.solana.com/tx/5nQmjPPLXavsWMMmTauj6Lo23QkC9pRG1WUK8HpAdBWdyJQnUQHtm4w1VCKwY2vUhXwQWLtMF5wyqasFT4EKBXQ5?cluster=devnet)
 
 ### **Core Mechanics & User Flows**
 
@@ -196,11 +194,13 @@ This platform serves as the intuitive, regulated front-end to our ecosystem. It 
 
 ## **Product Deep Dive 3: The Lending Protocol**
 
+> **Note:** This is a separate lending protocol (located in `/lending` directory) that enables users to deposit GOLD as collateral and borrow SOL/USDC against them. For the integrated GOLD lending protocol that's part of the main GOLD program, see [Product Deep Dive 4](#product-deep-dive-4-integrated-gold-lending-protocol).
+
 This is a decentralized lending and borrowing protocol built on Solana that enables users to deposit GOLD as collateral and borrow SOL/USDC against them. It implements a shares-based accounting system for fair distribution of interest and provides automated liquidation mechanisms to protect protocol solvency. The protocol uses Pyth oracles for real-time price feeds.
 
 ![](Frontend/asset/lending-system-design.svg)
 
-**Program Id:** `33s5M4sRp6LBV8mwHJz1EssyhQ3EHrHnDqQ94N1vy74q`
+**Program Id:** `33s5M4sRp6LBV8mwHJz1EssyhQ3EHrHnDqQ94N1vy74q` *(Separate program from the main GOLD protocol)*
 
 ### **Core Mechanics & User Flows**
 
